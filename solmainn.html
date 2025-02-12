@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Wallet Balance Checker</title>
+    <link rel="stylesheet" href="solemaine.css">
+</head>
+<body>
+    <h1>Solana Wallet Balance Checker</h1>
+    <input type="text" id="walletAddress" placeholder="Enter Wallet Address" />
+    <button onclick="checkBalance()">Check Balance</button>
+    <p id="balance">Balance: </p>
+
+    <script>
+       async function checkBalance() {
+    const walletAddress = document.getElementById('walletAddress').value;
+    if (!walletAddress) {
+        alert('Please enter a wallet address');
+        return;
+    }
+
+    const url = `http://localhost:3000/wallet/balance?walletAddress=${walletAddress}`;
+    console.log("Fetching from:", url); 
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        console.log("API Response:", data);
+        document.getElementById('balance').textContent = `Balance: ${data.balance} SOL`;
+    } catch (error) {
+        console.error("Fetch error:", error);
+        document.getElementById('balance').textContent =` Error: ${error.message}`;
+    }
+}
+      
+    </script>
+</body>
+</html>
