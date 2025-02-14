@@ -25,6 +25,6 @@ Example:
 If you enter this public Solana address: H5F57z5v8Bj3H9tP2uXvVxG3hhyTqDfFqL7JsDbDFwW5. The app will return the wallet balance in SOL.
 
 Future Improvements:
-Add QR code scanning for easy wallet input
-Display wallet transaction history
-Improve UI/UX with better design
+1. Add QR code scanning for easy wallet input.
+2. Display wallet transaction history.
+3. Improve UI/UX with better design.
